@@ -16,6 +16,6 @@ exports.uploadEvent = async (req, res, next) => {
   }
 };
 
-exports.getEvent = exports.uploadEvent = async (req, res, next) => {
-  res.status(201).send("Hii");
-};
+// // exports.getEvent = exports.uploadEvent = async (req, res, next) => {
+//   res.status(201).send("Hii");
+// };
