@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const functions = require("firebase-functions");
 
 process.on("uncaughtException", (err) => {
   console.log("UNCAUGHT EXCEPTION! 💥 Shutting down...");
@@ -35,5 +34,3 @@ process.on("unhandledRejection", (err) => {
     process.exit(1);
   });
 });
-
-exports.api = functions.https.onRequest(app);
