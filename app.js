@@ -12,6 +12,6 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/api/v1/upload", eventRoutes);
+app.use("/api/v1/event", eventRoutes);
 
 module.exports = app;

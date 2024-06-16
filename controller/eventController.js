@@ -1,7 +1,7 @@
 const Event = require("./../model/eventModel");
 
 exports.uploadEvent = async (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
   const event = new Event(req.body);
   try {
     await event.save();
@@ -19,5 +19,22 @@ exports.uploadEvent = async (req, res, next) => {
         message: "Something went wrong",
       })
       .then(() => console.log(error));
+  }
+};
+
+exports.getEvent = async (req, res, next) => {
+  try {
+    const result = await Event.find({
+      eventName: `${req.params.eventName}`,
+    });
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        data: result,
+      },
+    });
+  } catch (err) {
+    console.log(err);
   }
 };
