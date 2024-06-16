@@ -24,15 +24,13 @@ exports.uploadEvent = async (req, res, next) => {
 
 exports.getEvent = async (req, res, next) => {
   try {
-    const result = await Event.find({
+    const eventDetails = await Event.find({
       eventName: `${req.params.eventName}`,
     });
 
     res.status(200).json({
       status: "success",
-      data: {
-        data: result,
-      },
+      eventDetails,
     });
   } catch (err) {
     console.log(err);
