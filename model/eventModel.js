@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const eventSchema = new mongoose.Schema({
   eventName: String,
   eventTheme: String,
-  eventItem:[String],
+  eventItems: [String],
   eventPrice: String,
   eventImageUrls: [String],
 });
