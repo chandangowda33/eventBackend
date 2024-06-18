@@ -33,6 +33,12 @@ exports.getEvent = async (req, res, next) => {
       eventDetails,
     });
   } catch (err) {
-    console.log(err);
+    res
+      .status(400)
+      .json({
+        status: "Failed",
+        message: "Something went wrong",
+      })
+      .then(() => console.log(error));
   }
 };
