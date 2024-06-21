@@ -22,7 +22,7 @@ exports.uploadEvent = async (req, res, next) => {
   }
 };
 
-exports.getEvent = async (req, res, next) => {
+exports.getEventByName = async (req, res, next) => {
   try {
     const eventDetails = await Event.find({
       eventName: `${req.params.eventName}`,
@@ -40,5 +40,26 @@ exports.getEvent = async (req, res, next) => {
         message: "Something went wrong",
       })
       .then(() => console.log(error));
+  }
+};
+
+exports.getEventByID = async (req, res, next) => {
+  try {
+    const eventDetails = await Event.findOne({
+      _id: `${req.params.ID}`,
+    });
+
+    res.status(200).json({
+      status: "success",
+      eventDetails,
+    });
+  } catch (err) {
+    res
+      .status(400)
+      .json({
+        status: "Failed",
+        message: "Something went wrong",
+      })
+      .then(() => console.log(err));
   }
 };
